@@ -1,0 +1,207 @@
+Strings:
+
+1) Find the sum of elements arr = “10,20,30,40,50,60,70”.
+arr="10,20,30,40,50,60,70"
+s = map(int,arr.split(','))
+x=0
+for i in s:
+    x=x+i
+print(x)
+
+2)Display date, month and year form 10-Jan-2020
+st=10-Jan-2020
+x=st.split('-')
+print("Date:",x[0])
+print("Month:",x[1])
+print("Year:",x[2])
+
+3)arr = “10,20,30,40,50,60,70”, get “50,60”
+print(arr[-8:-3])
+
+4)st='______*****Hello#####______', remove all the special characters.
+st=st.strip('_').rstrip('#').lstrip('*')
+print(st)
+
+5)Write a Python program to remove the characters which have odd index values of a given string.
+x=input("enter a string")
+x=x[0::2]
+print(x)
+
+Lists:
+
+1) Given list is [2,5,6,6,4]. The maximum score is 6, second maximum is 5. Hence, print 5 as the runner-up score.
+l=[2,5,6,6,4]
+x=y=max(l)
+while x==y:
+    l.remove(x)
+    x=max(l)
+print(max(l))
+
+2) Given 2D array(list) calculate the sum of diagonal elements. 
+def sum(a):
+    x=0
+    for i in range(len(a)):
+        x+=a[i][i]
+    print(x)
+
+3)gadgets = [“Mobile”, “Laptop”, 100, “Camera”, 310.28, “Speakers”, 27.00,
+“Television”, 1000, “Laptop Case”, “Camera Lens”]
+create separate lists of strings and numbers.
+
+str_list = num_list[]
+for i in gadgets:
+    if isinstance(i, str):     
+        str_items.append(item) 
+    elif isinstance(i,int) or isinstance(i, float):
+        num_items.append(item)
+ 
+ 4) Get first, second best scores from the list.
+List may contain duplicates.
+Ex: [86,86,85,85,85,83,23,45,84,1,2,0]
+
+
+l = [86,86,85,85,85,83,23,45,84,1,2,0]
+f=max(l)
+s=min(l)
+for i in range(len(l)):
+    if l[i]<f and l[i]>s:
+        s=l[i]
+print('First best score:',f)
+print('Second best score:',s)
+
+5) val = ['Mobile', 'Laptop', 'Camera', 'Speakers', 'Television', 'Laptop Case', 'Camera Lens']
+Sort the strings list in descending order
+
+val.sort()
+val.reverse()
+print(val)or
+val.sort(reverse=True)
+print(val)
+
+Tuples:
+
+1)Write a Python program to convert a tuple to a string.
+tup=('a','p','p','l','e')
+st="".join(tup)
+print(st)
+
+2) Write a Python program to add an item in a tuple.
+tup=('a','p','p','l')
+x=list(tup)
+x.append('e')
+tup=tuple(x)
+print(t)
+
+3)Write a Python program to find the repeated items of a tuple.
+tup=(2, 4, 5, 6, 2, 3, 4, 4, 7)
+l=[]
+for i in tup:
+    c=tup.count(i)
+    if c>1 and i not in l:
+        print(i,"is repeated", c,'times')
+        l.append(i)
+
+4)Write a Python program to reverse a tuple.
+tup=(2, 4, 5, 6, 2, 3, 4, 4, 7)
+x=list(tup)
+x.reverse()
+tup=tuple(x)
+print(tup)
+
+5)Write a Python program to replace last value of tuples in a list.
+Sample list: [(10, 20, 40), (40, 50, 60), (70, 80, 90)]
+Expected Output: [(10, 20, 100), (40, 50, 100), (70, 80, 100)]
+
+l=[(10, 20, 40), (40, 50, 60), (70, 80, 90)]
+tup=l[len(l)-1]
+x=list(tup)
+x[len(x)-1]=100
+tup=tuple(x)
+l[len(l)-1]=tup
+print(l)
+
+Sets:
+
+1) Write a Python program to add member(s) in a set.
+sum=0
+s={1,2,3,4,5}
+for i in s:
+    sum+=i
+print(sum)
+
+2)Write a Python program to remove an item from a set if it is present in the set.
+s={1,2,3,4,5}
+x=int(input("Enter the value to be deleted:"))
+if x in s:
+    s.remove(x)
+    print("Value removed")
+else:
+    print("Value is not present in the set s")
+
+3)Write a Python program to create union and intersection of sets.
+A = {1, 3, 5, 7} 
+B = {1, 2, 4, 6, 7}
+C=A.union(B)
+print(C)
+C=A.intersection(B)
+print(C)
+
+4)Write a Python program to create a shallow copy sets. 
+set1 = {5, 10, 3, 15, 2, 20}
+set2=set1.copy()
+if set1 is not set2:
+    if set1 == set2:
+        print("set2 is a copy of set1")
+
+5)Write a Python program to check if two given sets have no elements in common.
+A = {1, 3, 5, 7} 
+B = {1, 2, 4, 6, 7}
+C=A.intersection(B)
+if C:
+    print("A and B have common elements:",C)
+else:
+    print("A and B have no common elements!")
+
+
+Dictionaries:
+
+1)Write a Python script to concatenate following dictionaries to create a new one.
+dic1={1:10, 2:20}
+dic2={3:30, 4:40}
+dic3={5:50,6:60}
+dic1.update(dic2)
+dic1.update(dic3)
+print(dic1)
+
+2)Write a Python script to check whether a given key already exists in a dictionary.
+dic1={1:10, 2:20}
+k=int(input("Enter a key:"))
+if k in dic1:
+    print(k,"is already present in dic1")
+
+3)Write a Python program to multiply all the items in a dictionary.
+dic1={1:10, 2:20, 3:30}
+p=1
+for i in dic1:
+    p*=dic1[i]
+print("Product of dict1 items is:",p)
+
+4)Write a Python program to map two lists into a dictionary.
+keys = ['red', 'green', 'blue']
+values = ['#FF0000','#008000', '#0000FF']
+dic1=dict(zip(keys,values))
+print(dic1)
+
+5) Write a Python program to combine two dictionary adding values for common keys.
+d1 = {'a': 100, 'b': 200, 'c':300, 'e':400}
+d2 = {'a': 300, 'b': 200, 'd':400}
+d3=dict()
+for i in d1:
+    if i in d2:
+        d3[i]=d1[i]+d2[i]
+    else:
+        d3[i]=d1[i]
+for i in d2:
+    if i not in d1:
+        d3[i]=d2[i]
+print(d3)

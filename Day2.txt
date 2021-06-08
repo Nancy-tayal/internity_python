@@ -1,0 +1,185 @@
+Indexing in sequences:
+
+1) list indexing:
+l=[1,2,3,4,'a','hi',4.2]
+print(l[4]) #output: a
+print(l[-1]) #output: 4.2
+print(l.index(4)) #output: 3
+
+2) string indexing:
+st="Nancy"
+print(st[2]) #output: n
+print(s[-4]) #output: c
+
+3) tuple indexing
+tup=1,2,3,4
+print(tup[1]) #output: 2
+print(tup[-3]) #output: 2
+
+4) dictionary indexing
+dict={'fname':'Nancy','lname':'Tayal'}
+print(dict['fname']) #output: Nancy
+print
+
+Slicing sequences:
+
+1) slicing strings
+st='Nancy'
+print(st[0:]) #output: Nancy
+print(st[1:4]) #output: anc
+print(st[:3]) #output: Nan
+print(st[0::2]) #output: Nny
+print(st[-3:]) #output: ncy
+print(st[-2:-1]) #output: c
+
+2)slicing Lists
+l=[1,2,3,4,5,6]
+print(l[0:]) #output: [1,2,3,4,5,6]
+print(l[1:3]) #output: [2,3]
+print(l[:4]) #output: [1,2,3,4]
+print(l[-3:]) #output: [4,5,6]
+print(l[-4:-2]) #output: [3,4]
+
+3) slicing tuples
+tup=(1,2,3,4,5,6)
+print(tup[0:]) #output: [1,2,3,4,5,6]
+print(tup[1:3]) #output: [2,3]
+print(tup[:4]) #output: [1,2,3,4]
+print(tup[-3:]) #output: [4,5,6]
+print(tup[-4:-2]) #output: [3,4]
+
+Exception Handling:
+
+1) 
+import sys
+a=int(input())
+b=int(input())
+try:
+    c=b/a
+    print(c)
+except:
+    print(sys.exc_info()[0])
+
+
+2)
+a=int(input())
+b=int(input())
+try:
+    c=b/a
+except ZeroDivisionError:
+    print(ZeroDivisionError)
+except Exception as e:
+    print(e.__class__)
+else:
+    print(c)
+
+
+
+3)
+a=int(input())
+b=int(input())
+try:
+    if(a==0) :
+        raise ZeroDivisionError
+    else:
+        c=b/a
+except ZeroDivisionError:
+    print(ZeroDivisionError)
+except Exception as e:
+    print(e.__class__)
+else:
+    print(c)
+
+
+4)
+a=int(input())
+b=int(input())
+try:
+    if(a==0) :
+        raise ZeroDivisionError("Division by zero is not allowed")
+    else:
+        c=b/a
+except ZeroDivisionError as ze:
+    print(ze)
+    print(ze.__class__)
+except Exception as e:
+    print(e.__class__)
+else:
+    print(c)
+finally:
+    print('This is always printed!')
+
+5)
+a=int(input())
+try:
+    if a<0 :
+        raise ValueError("Error! Not a positive number")
+except Exception as e:
+    print(e.__class__)
+    print(e)
+else:
+    print(a,'is a positive integer!')
+
+
+Regular Expressions(RegEx)
+
+1)Write a Python program to check that a string contains only a certain set of characters (in this case a-z, A-Z and 0-9).
+import re 
+st=input()
+r=re.compile(r'[^a-zA-Z0-9]')
+match=r.search(st)
+if match:
+    print(st,'contains invalid characters')
+else:
+    print(st,'is verified')
+    
+2)Write a Python program that matches a string that has an a followed by zero or more b's.
+import re 
+st=input()
+pattern='ab*'
+match=re.search(pattern,st)
+if match:
+    print('match found')
+else:
+    print('no match found')
+
+3)Write a Python program that matches a string that has an a followed by three 'b'.
+import re 
+st=input()
+pattern='ab{3}'
+match=re.search(pattern,st)
+if match:
+    print('match found')
+else:
+    print('no match found')
+
+4)Write a Python program to find sequences of lowercase letters joined with a underscore.
+import re 
+st=input()
+r=re.compile(r'[a-z]+_[a-z]+$')
+match=r.search(st)
+if match:
+    print('match found')
+else:
+    print('no match found')
+
+5)Write a Python program that matches a string that has an 'a' followed by anything, ending in 'b'.
+import re 
+st=input()
+r=re.compile(r'a.*b$')
+match=r.search(st)
+if match:
+    print('match found')
+else:
+    print('no match found')
+
+6) Write a Python program that matches a word at the beginning of a string.
+import re 
+st=input()
+w=input("enter the word to be matched")
+r=re.compile(r'\A'+w)
+match=r.search(st)
+if match:
+    print('match found')
+else:
+    print('no match found')

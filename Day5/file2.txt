@@ -1,0 +1,3 @@
+The MySQLCursor of mysql-connector-python (and similar libraries) is used to execute statements to communicate with the MySQL database.
+Using the methods of it you can execute SQL statements, fetch data from the result sets, call procedures.
+You can create Cursor object using the cursor() method of the Connection object/class.

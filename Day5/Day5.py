@@ -39,7 +39,7 @@ data = {
 df = pd.DataFrame(data)
 print(df) 
 print(df.loc[1])  #returns a pandas Series
-print(df.loc[[1,2]])  #When using [], the result is a Pandas DataFrame.
+print(df.loc[[1,2]])  #When using [], the result is a Pandas DataFrame
 
 
 data = {

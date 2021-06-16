@@ -183,3 +183,131 @@ print(arr[filter_arr]) #[102 860 270 106 700  20 614 466 214 330 458]
 print(np.count_nonzero(np.greater(arr, 200) & np.less(arr, 500))) #6
 print(arr[arr >400])  #[435 860 700 614 466 458]
  
+#ufunc
+'''
+ufuncs stands for "Universal Functions" and they are NumPy functions that operates on the ndarray object.
+
+Why use ufuncs?
+ufuncs are used to implement vectorization in NumPy which is way faster than iterating over elements.
+They also provide broadcasting and additional methods like reduce, accumulate etc. that are very helpful for computation.
+
+ufuncs also take additional arguments, like:
+where - boolean array or condition defining where the operations should take place.
+dtype - defining the return type of elements.
+out - output array where the return value should be copied.
+
+
+'''
+def myadd(x, y):
+  return x+y
+print(type(myadd))
+print(myadd([1, 2, 3, 4], [5, 6, 7, 8]))
+myadd = np.frompyfunc(myadd, 2, 1)
+
+print(myadd(np.array(['1', 2, 3, 4]), np.array(['5', 6, 7, 8])))
+print(np.add([1, 2, 3, 4], [5, 6, 7, 8]))
+print(type(np.add))
+print(type(myadd))
+
+'''
+<class 'function'>
+[1, 2, 3, 4, 5, 6, 7, 8]
+['15' '26' '37' '48']
+[ 6  8 10 12]
+<class 'numpy.ufunc'>
+<class 'numpy.ufunc'>
+'''
+
+arr1 = np.array([10, 20, 30, 40, 50, 60])
+arr2 = np.array([3, 7, 9, 8, 2, 33])
+
+newarr = np.divmod(arr1, arr2)
+
+print(newarr)
+
+'''
+(array([ 3,  2,  3,  5, 25,  1]), array([ 1,  6,  3,  0,  0, 27]))
+'''
+
+arr1 = np.array([10, 20, 30, 40, 50, 60])
+arr2 = np.array([20, 21, 22, 23, 24, 25])
+
+print(np.subtract(arr1, arr2))
+print(np.add(arr1,arr2))
+print(np.multiply(arr1,arr2))
+print(np.divide(arr1,arr2))
+print(np.power(arr1,arr2))
+print(np.remainder(arr1,arr2))
+print(np.mod(arr1,arr2))
+
+'''
+[30 41 52 63 74 85]
+[ 200  420  660  920 1200 1500]
+[0.5        0.95238095 1.36363636 1.73913043 2.08333333 2.4       ]
+[1661992960          0 1749024768          0 1090519040          0]
+[10 20  8 17  2 10]
+[10 20  8 17  2 10]
+'''
+arr = np.array([-1, -2, 1, 2, 3, -4])
+print(np.absolute(arr))	#[1 2 1 2 3 4]`
+print(np.abs(arr)) 	#[1 2 1 2 3 4]
+
+print(np.gcd(10,40))	#10
+arr = np.array([20, 8, 32, 36, 16])
+x = np.gcd.reduce(arr)  
+print(x)	4
+
+print(np.lcm(4,8))	#8
+arr = np.arange(1, 11)	
+x = np.lcm.reduce(arr)
+print(x)	#2520
+
+#summation
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([1, 2, 3])
+print(np.sum(arr1))
+print(np.sum([arr1, arr2]))
+print(np.sum([arr1, arr2], axis=1))
+print(np.sum([arr1, arr2], axis=0))
+print(np.cumsum(arr1))
+
+'''
+6
+12
+[6 6]
+[2 4 6]
+[1 3 6]
+'''
+#discrete difference
+arr = np.array([10, 15, 25, 5])
+newarr = np.diff(arr)
+print(newarr) #[  5  10 -20]
+newarr=np.diff(arr,n=2)
+print(newarr)	#[5 -30]
+
+#products
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([5, 6, 7, 8])
+print(np.prod([arr1, arr2], axis=0))
+print(np.prod([arr1, arr2], axis=1))
+print(np.prod([arr1, arr2]))
+print(np.prod(arr1))
+print(np.cumprod(arr2))
+
+'''
+[ 5 12 21 32]
+[  24 1680]
+40320
+24
+[   5   30  210 1680]
+'''
+arr = np.arange(1, 10)
+print(np.log(arr))
+print(np.log2(arr))
+print(np.log10(arr))
+
+'''
+[0.         0.69314718 1.09861229 1.38629436 1.60943791 1.79175947 1.94591015 2.07944154 2.19722458]
+ [0.         1.         1.5849625  2.         2.32192809 2.5849625 2.80735492 3.         3.169925  ]
+[0.         0.30103    0.47712125 0.60205999 0.69897    0.77815125 0.84509804 0.90308999 0.95424251]
+'''

@@ -35,11 +35,15 @@ def game(x,y) :
                 print('Yeah! You identified the number')
                 break
             elif guess < r :
-                print('Please try again! The number you guessed is too small')
+                if (i+1) == c:
+                    print('OOPS! All you chances are finished. Better luck next time!')
+                else:
+                    print('Please try again! The number you guessed is too small')
             else :
-                print('Please try again! The number you guessed is too high')
-        if i ==c:
-            print('OOPS! All you chances are finished. Better luck next time!')
+                if (i+1) == c:
+                    print('OOPS! All you chances are finished. Better luck next time!')
+                else:
+                    print('Please try again! The number you guessed is too high')
         ch = input('Do you want to continue playing?(y/n) ')
         if ch != 'y':
             break
